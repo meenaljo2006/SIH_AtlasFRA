@@ -68,12 +68,6 @@ const LoginPage = () => {
                         required 
                     />
                 </div>
-                {/* Removed "Remember Me" option as per your request */}
-                {/* <div className="options-group">
-                    <label>
-                        <input type="checkbox" /> Remember Me
-                    </label>
-                </div> */}
                 <button type="submit" className="login-button">LOGIN TO ATLAS</button> {/* Updated button text */}
             </form>
 
