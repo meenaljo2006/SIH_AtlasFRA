@@ -1,0 +1,101 @@
+.main-navbar {
+    position: fixed;
+    top: 56px; 
+    left: 0;
+    width: 100%;
+    height: 90px; 
+    background-color: #276239; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 999; 
+    color: white; 
+}
+
+.main-navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo{
+    height: 65px;
+    width: 65px;
+}
+.navbar-brand-with-desc {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand-title-line {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Adjust the space between the title and the pill */
+}
+
+.main-brand-link {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    line-height: 1.2;
+}
+
+.view-pill {
+    padding: 4px 10px;
+    font-weight: 500;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    color: #276239; 
+    background-color: #eaf3ed; 
+}
+
+.navbar-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.main-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-right: 60px;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 10px;
+    border: none;
+    border-radius: 8px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 400;
+    cursor: pointer;
+    text-decoration: none; 
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.action-button.secondary , .action-button.primary   {
+    background-color: white;
+    color: #333;
+    border: 1px solid #dee2e6; 
+}
+
+.action-button.secondary:hover ,.action-button.primary:hover {
+    background-color: #dcdfe1; 
+}
+
+
+.action-button span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import './LoginPage.css';
+import { useAuth } from '../Context/AuthContext';
+
 
 // Import your image assets
 import forestBg from '../assets/forestBG.png'; 
@@ -12,10 +14,12 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
+  const { login } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
     console.log('Logging in with:', { username, password });
+    login(username);
     navigate('/atlasView'); 
   };
 

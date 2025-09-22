@@ -1,0 +1,24 @@
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 8px 40px;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #e0e0e0;
+    height: 40px;
+}
+
+.logo1{
+    height: 38px;
+}
+
+.logo2 , .logo3{
+    height: 40px;
+}
+
+
+.topbar-right {
+    display: flex;
+    gap: 10px;
+}
