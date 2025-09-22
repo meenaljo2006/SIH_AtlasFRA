@@ -3,9 +3,7 @@ import MainPage from "./Pages/MainPage";
 import LoginPage from './Pages/LoginPage';
 import MainLayout from './Components/MainLayout'; // <-- Import the layout
 import AtlasView from './Pages/AtlasView';
-
-
-const RecordsView = () => <h1 style={{padding: '20px'}}>Records View Page</h1>;
+import RecordsView from './Pages/RecordsView';
 
 function App() {
   return (

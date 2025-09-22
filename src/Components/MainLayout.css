@@ -66,24 +66,13 @@
     background-color: rgba(255, 255, 255, 0);
     color: white;
 }
+.action-button.primary{
+  font-size: 1.1rem;
+}
 
 .action-button span {
     font-size: 1.2rem;
     line-height: 1;
-}
-
-.dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 10px 16px;
-  border: none;
-  background: none;
-  text-align: center;
-  color: #333;
-  cursor: pointer;
-  font-size: 0.95rem;
-  font-family:'Times New Roman', Times, serif;
-
 }
 
 .main-content {

@@ -4,7 +4,7 @@ import LandingNavbar from '../Components/LandingNavbar';
 import StyledSeperator from '../Components/StyledSeperator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faCircleInfo, faGears, faIdBadge} from '@fortawesome/free-solid-svg-icons';
-import laptopImage from '../assets/laptop.png';
+import footerImage from "../assets/footer.jpg";
 
 import "./MainPage.css"
 
@@ -44,6 +44,14 @@ const MainPage = () => {
         </div>
 
         <StyledSeperator logoText="FRA ATLAS" mainText="WEB GIS PORTAL"/>
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+        <div className="footerImage">
+            <img src={footerImage} alt='Footer Image'/>
+        </div>
+        
+
+        
 
     </>
   );

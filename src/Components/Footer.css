@@ -1,0 +1,37 @@
+.main-footer {
+  background-color: #276239; /* Use a dark color from your theme */
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  position: relative; /* Position relative to allow for more complex layouts */
+  bottom: 0;
+  left: 0;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-footer p {
+  margin: 7px 0 0px 0;
+  font-size: 0.9rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin: 0 5px;
+  transition: text-decoration 0.3s ease;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.divider {
+  color: #fff;
+}
