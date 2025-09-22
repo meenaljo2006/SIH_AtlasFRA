@@ -9,10 +9,10 @@ const StyledSeparator = ({ logoText, mainText }) => {
       <div className="pill-button">
         <div className="logo-container">
           {/* Using text as a logo as per the image */}
-          {logoText || 'OneMap SERIES'} 
+          {logoText} 
         </div>
         <div className="divider"></div>
-        <span className="portal-text">{mainText || 'State GIS Portal'}</span>
+        <span className="portal-text">{mainText}</span>
       </div>
       <div className="line right"></div>
     </div>

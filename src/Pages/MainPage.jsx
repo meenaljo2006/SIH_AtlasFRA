@@ -31,16 +31,19 @@ const MainPage = () => {
             </nav>
         </div>
         <div className="middleSection">
-            <div className="hero-image-column">
-                <img src={laptopImage} alt="FRA Atlas on Laptop" />
-            </div>
             <div className="hero-text-column">
-                <h1>AI-Powered FRA Atlas & WebGIS Portal</h1>
-                <p className='highlight'>TRACK | MAP | DECIDE</p>
+                <h1>FRA Atlas & WebGIS Portal</h1>
+                <div className="highlight">
+                    <p>TRACK</p>
+
+                    <p>MAP</p>
+                    <p>DECIDE</p>
+                </div>
+
             </div>
         </div>
 
-        <StyledSeperator logoText="FRA Atlas" mainText="Key Features" />
+        <StyledSeperator logoText="FRA ATLAS" mainText="WEB GIS PORTAL"/>
 
     </>
   );

@@ -2,7 +2,7 @@
   width: 100%;
   height: 3.6rem;
   background-color: #276239;
-  padding-top: 82px;
+  /* padding-top: 82px; */
   position: fixed;
   z-index: 1;
 }
@@ -64,25 +64,19 @@
 
 .middleSection{
   width: 100%;
-  height: 20rem;
+  height: 25rem;
   background-color: #276239;
-  border-bottom-left-radius: 50% 30%;   /*left bottom corner curve */
-  border-bottom-right-radius: 50% 30%;  /*right bottom corner curve */
+  background-image: url("../assets/tribals.avif");
+  background-position: top;
+  border-bottom-left-radius: 50% 35%;   /*left bottom corner curve */
+  border-bottom-right-radius: 50% 35%;  /*right bottom corner curve */
   text-align: center;
   color: white;
   padding-top: 10rem;
   display: flex;
   flex-direction: row;
+  margin-top: 82px;
 
-}
-
-/* Making sure our content stays above the curve */
-.hero-image-column{
-  position: relative;
-  z-index: 0;
-  width: 600px;
-  height: 200px;
-  margin-left: 50px;
 }
 
 .hero-text-column{
@@ -90,37 +84,49 @@
     width: 600px;
     left: 35rem;
     z-index: 0;
-}
-
-.hero-image-column img {
-  width: 90%;
-  height: auto;
-}
-
-.hero-text-column {
-  flex: 1; /* Gives the text column space */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .hero-text-column h1 {
   font-size: 2.8rem; /* Adjust font size as needed */
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   color: white;
 }
 
 .hero-text-column p {
-  font-size: 1.5rem;
-  line-height: 1.6;
-  opacity: 0.9;
+  font-size: 1.2rem;
+  opacity: 0.8;
+
 }
 
 .highlight {
-  font-weight: 600;
+  /* font-weight: 600; */
   color: #444;
   background: #e2f1e8;
   display: inline-block;
-  padding: 0.5rem;
+   padding: 0.4rem 1.5rem;
   border-radius: 8px;
-  width: 20rem;
-  height: 2rem;
+  width: 15rem;
+  height: 1.5rem;
+  margin-top: 0;
+  display: flex;
+  justify-content: space-evenly; /* This evenly distributes the words and any dividers */
+  align-items: center; /* This centers the words vertically */
+}
+
+/* Apply a right border to the first two p tags */
+.highlight p:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.3);
+  padding-right: 1rem; /* Add space between the text and the line */
+  margin-right: 1rem; /* Add space after the line */
+}
+
+/* Optional: style the p tags inside highlight */
+.highlight p {
+  padding: 0;
+  margin: 0;
 }

@@ -5,16 +5,16 @@
 
 /* --- The visible circle with initials --- */
 .avatar-circle {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   color: #276239; 
-    background-color: #eaf3ed;
+  background-color: #eaf3ed;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   border: 2px solid white;
 }
@@ -23,15 +23,16 @@
 .avatar-dropdown {
   display: none; /* Hidden by default */
   position: absolute;
-  top: 50px; /* Position it below the avatar */
+  top: 45px; /* Position it below the avatar */
   right: 0;
+  font-family:'Times New Roman', Times, serif;
   width: 120px;
   text-align: center;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   border: 1px solid #e0e0e0;
-  z-index: 1001; /* Make sure it's on top of everything */
+  z-index: 9999; /* Make sure it's on top of everything */
   /* padding: 8px 0; */
 }
 
@@ -44,7 +45,7 @@
 .dropdown-header {
   padding: 10px 16px;
   font-size: 0.9rem;
-  color: #555;
+  color: #222;
   line-height: 1.4;
 }
 

@@ -42,6 +42,9 @@
 .fancy-separator-wrapper .logo-container {
     margin-right: 15px;
     font-weight: 900;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     /* You can add your logo image here instead of text */
 }
 
@@ -55,4 +58,5 @@
 
 .fancy-separator-wrapper .portal-text {
     font-size: 1.2rem;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
 }   
