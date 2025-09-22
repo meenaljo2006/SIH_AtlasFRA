@@ -1,0 +1,92 @@
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 82px; /* A good height for this style */
+  width: 100%;
+  background-color: #276239; /* Dark blue background */
+  color: white;
+  padding-left: 20px; /* Only pad the left side */
+  box-sizing: border-box;
+  position: fixed;
+  top:0;
+  z-index: 1000;
+}
+.app-logo {
+  height: 60px; /* Adjust as needed for your logo */
+  margin-right: 15px;
+  border-radius: 50%;
+
+}
+
+.header-title-main h1 {
+  margin: 0;
+  font-size: 1.6rem; /* Slightly larger title */
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header-title-main p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8); /* Lighter text for subtitle */
+  margin: 2px 0 0;
+
+}
+
+.header-left{
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  color: #ffffff;
+  text-decoration: none;
+  margin-left: 30px; /* Space between nav items */
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 0; /* Vertical padding for hover effect */
+  position: relative; /* For officer persona tooltip */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-item:hover {
+  color: #d4edda; /* Lighter green on hover */
+}
+
+/* --- The Swoop and Right Side --- */
+.header-right{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative; /* Required for the pseudo-element */
+  padding-right: 50px; /* Space on the far right */
+}
+
+/* This creates the white swoop shape */
+.header-right::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100px; /* Start the shape to the left of the logos */
+  width: 1000px; /* Make it very wide */
+  height: 100%;
+  background-color: white;
+  z-index: -1; /* Place it behind the logos */
+  
+  /* This creates the curve */
+  border-bottom-left-radius: 80px; 
+}
+
+.ministry-logos{
+  display: flex;
+  gap: 20px; /* Space between logos */
+  align-items: center;
+}
+
+.ministry-logos img {
+  height: 55px; /* Adjust logo size as needed */
+}
+
+
+

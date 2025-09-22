@@ -1,0 +1,58 @@
+/* Main container that holds the lines and the pill */
+.fancy-separator-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 60px 0; /* Adds space above and below the separator */
+}
+
+/* The horizontal lines on both sides */
+.fancy-separator-wrapper .line {
+    height: 2px;
+    flex-grow: 1; /* This makes the lines take up all available space */
+}
+
+/* Gradient for the left line */
+.fancy-separator-wrapper .line.left {
+    background: linear-gradient(to left, #f39c12, transparent);
+}
+
+/* Gradient for the right line */
+.fancy-separator-wrapper .line.right {
+    background: linear-gradient(to right, #2ecc71, transparent);
+}
+
+/* The main pill-shaped button */
+.fancy-separator-wrapper .pill-button {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    white-space: nowrap;
+    background: linear-gradient(to right, #f39c12, #2ecc71); /* Orange to Green Gradient */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+    margin: 0 20px; /* Ensures lines don't touch the pill */
+}
+
+.fancy-separator-wrapper .logo-container {
+    margin-right: 15px;
+    font-weight: 900;
+    /* You can add your logo image here instead of text */
+}
+
+/* The vertical divider line inside the pill */
+.fancy-separator-wrapper .divider {
+    width: 2px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: 0 20px;
+}
+
+.fancy-separator-wrapper .portal-text {
+    font-size: 1.2rem;
+}   
