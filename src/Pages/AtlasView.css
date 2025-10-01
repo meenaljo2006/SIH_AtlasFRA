@@ -1,7 +1,7 @@
 .atlas-container {
   display: flex;
   margin-top: 10px;
-  height: 79vh; /* Make the container take up the full viewport height */
+  height: 82vh; /* Make the container take up the full viewport height */
 }
 
 /* Optional but recommended: Add styling for your map area */

@@ -1,8 +1,354 @@
 .sidebar {
-  width: 300px;
-  background-color: #f8f9fa;
-  border-right: 1px solid #ddd;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+    width: 320px;
+    min-width: 320px;
+    background-color: #ffffff;
+    
+    /* CRITICAL: Remove padding from here */
+    padding: 0; 
+    
+    /* Required to fill parent height and enable column layout */
+    height: 100%; 
+    display: flex; 
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.sidebar-content-wrapper {
+    /* CRITICAL: Add padding back here */
+    padding: 20px 15px; 
+    
+    /* Allow this wrapper to grow and handle the scrolling */
+    flex-grow: 1; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.sidebar-section {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #23232228; /* Light gray separator */
+}
+
+.sidebar-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 2px;
+}
+
+
+/* Hide the extra search icon container */
+
+/* Force the container to take full sidebar width */
+.geosearch-sidebar-container {
+  width: 100% !important;
+  display: block;
+  position: relative;
+}
+
+/* Make the inner geosearch div stretch */
+.geosearch-sidebar-container .leaflet-control-geosearch.leaflet-geosearch-bar {
+  width: 100% !important;
+  display: block;
+}
+
+/* Ensure form takes all available space */
+.geosearch-sidebar-container form {
+  width: 100% !important;
+  position: relative; /* needed for reset button */
+  display: block;
+}
+
+/* Input full width */
+.geosearch-sidebar-container form input.glass {
+  width: 100% !important;
+  box-sizing: border-box;
+  padding: 8px 35px 8px 12px; /* space for the × button */
+  font-size: 14px;
+}
+
+/* Reset button inside input neatly */
+.geosearch-sidebar-container form button.reset {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Force container to take full sidebar width */
+.geosearch-sidebar-container,
+.geosearch-sidebar-container .leaflet-control-geosearch.leaflet-geosearch-bar {
+  width: 100% !important;
+  max-width: none !important; /* override Leaflet’s fixed limit */
+  display: block !important;
+}
+
+.geosearch-sidebar-container .geosearch.leaflet-bar {
+    display: none !important;
+}
+
+
+/* hello */
+/* Sidebar.css - New & Updated Styles */
+
+
+
+/* GeoSearch Overrides (Re-checked for consistency) */
+/* The input field in the image is simple and rounded */
+.geosearch-sidebar-container .leaflet-control-geosearch-form input {
+    /* ... ensure your width is 100% and height is fixed ... */
+    border: 1px solid #ccc; /* Add border directly to input if GeoSearch allows */
+    border-radius: 6px;
+    padding: 10px 15px; /* Comfortable padding */
+    height: auto; /* Let padding define height */
+    font-size: 14px;
+    line-height: 1.2;
+}
+/* If the above doesn't work, ensure you target the wrapper: */
+.geosearch-sidebar-container .leaflet-control-geosearch-form {
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    height: 40px; /* Adjust height */
+    width: 100%;
+}
+.geosearch-sidebar-container .leaflet-control-geosearch-form input {
+    border: none; /* Remove border from input if wrapper has it */
+    padding: 10px 15px; 
+}
+
+
+/* --- Layer Items & Toggles --- */
+
+.layer-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+    transition: opacity 0.2s;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.section-header h3 {
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+.dropdown-icon {
+    /* Basic styling for the small chevron icon */
+    font-size: 10px;
+    margin-left: 10px;
+    color: #666;
+}
+
+.asset-list {
+    padding-left: 20px; /* Indent the asset list */
+}
+
+.layer-item.disabled {
+    opacity: 0.5;
+    /* Optional: pointer-events: none; to disable clicking entirely */
+}
+
+
+/* --- Information Panel --- */
+
+.info-content {
+    background-color: #f7f9fc;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+/* --- 2. Help Center (Fixed Footer) --- */
+
+.help-center-footer {
+    margin-top: auto; /* Pushes the footer to the bottom */
+    padding: 15px; /* Padding inside the footer area */
+    border-top: 1px solid #f0f0f0;
+    flex-shrink: 0; /* Ensures the footer doesn't shrink when scrolling */
+    background-color: white; /* Ensures it covers scrolling content */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); 
+}
+
+.help-button {
+    width: 100%;
+    background-color: #fff;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 6px;
+    padding: 10px 0;
+    font-size: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.help-button:hover {
+    background-color: #f0f8ff;
+}
+
+/* --- Toggle Switch CSS --- */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px; 
+  height: 22px; 
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px; 
+  width: 18px; 
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #276239; 
+}
+
+input:checked + .slider:before {
+  transform: translateX(18px); 
+}
+
+.slider.round {
+  border-radius: 22px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+/* Sidebar.css */
+
+/* --- Information Panel Base --- */
+
+.info-panel .info-content {
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* 1. State: No Data Message (image_a1bfa4.png - bottom section) */
+.info-content.no-data-message {
+    background-color: #f7f9fc; /* Light blue/gray background */
+    border: 1px solid #e0e0e0;
+    color: #6c757d; /* Darker gray text */
+    font-size: 12px;
+    line-height: 1.4;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: -40px;
+}
+
+/* 2. State: Village Name Only (image_a1c24f.png) */
+.info-content.village-only {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #e0e0e0;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* 3. State: Full Data and Stats (image_a1bf84.png) */
+.info-content.full-data {
+    background-color: #ffffff;
+    padding: 1; /* Remove padding to contain stats and button properly */
+    border: 1px solid #e0e0e0;
+}
+.info-content.full-data h4{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Stats Styling */
+.stats-area {
+    padding: 0 15px; /* Apply padding inside the stats area */
+    margin-bottom: 20px;
+}
+.stats-area p {
+    margin: 0;
+    padding: 3px 0;
+    color: #333;
+    font-size: 15px;
+    font-weight: 500;
+}
+.stats-area .stat-value {
+    font-weight: 700;
+    color: #1f3e6c; /* Darker color for values */
+}
+.stats-area .approved {
+    color: #28a745; /* Green */
+}
+.stats-area .pending {
+    color: #ffc107; /* Yellow/Orange */
+}
+
+/* Separator Line */
+.stats-area .separator {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 15px;
+    padding-top: 15px;
+}
+
+/* Report Button */
+.report-button {
+    width: 100%;
+    /* Green background color */
+    background-color: #276239; 
+    color: white;
+    border: none;
+    border-radius: 6px; /* Rounded only at the bottom */
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.report-button:hover {
+    background-color: #1c8f3f; /* Darker green on hover */
 }
