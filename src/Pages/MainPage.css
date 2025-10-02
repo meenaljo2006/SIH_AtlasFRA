@@ -80,9 +80,9 @@
 }
 
 .hero-text-column{
-    position: absolute;
-    width: 600px;
-    left: 35rem;
+    position: relative;
+    width: 800px;
+    /* left: 35rem; */
     z-index: 0;
     flex: 1;
     display: flex;
@@ -112,7 +112,7 @@
   border-radius: 8px;
   width: 15rem;
   height: 1.5rem;
-  margin-top: 0;
+  margin-top: 15px;
   display: flex;
   justify-content: space-evenly; /* This evenly distributes the words and any dividers */
   align-items: center; /* This centers the words vertically */
@@ -133,4 +133,125 @@
 
 .footerImage{
   overflow: hidden;
+}
+
+
+/* ===================================== */
+/* FOOTER STYLING (GREEN & WHITE PALETTE)*/
+/* ===================================== */
+
+.app-footer {
+    /* Dark Green Background for the main footer (Forest Green) */
+    background-color: #ffffff; 
+    color: #2b2e2b; /* Off-White/Honeydew for high contrast text */
+    padding: 3rem 1.5rem; 
+    margin-top: 3rem; 
+}
+
+/* Footer Grid for Columns */
+.footer-content-grid {
+    max-width: 1280px; 
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6rem; 
+    padding-left: 5rem;
+    padding-bottom: 1.5rem; 
+    /* Lighter Green Border */
+    border: 1px solid #1a7337; 
+    border-radius: 30px;
+}
+
+.footer-heading {
+    font-size: 1.125rem; 
+    font-weight: bold;
+    margin-bottom: 1rem; 
+    /* Bright Green Accent for Headings */
+    color: #1c3d0d; 
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.5; 
+}
+
+.footer-list li {
+    margin-bottom: 0.5rem; 
+    font-size: 0.875rem; 
+}
+
+.footer-link {
+    color: #232423;
+    text-decoration: none;
+    transition: color 0.15s;
+    font-size: 0.875rem;
+}
+
+.footer-link:hover {
+    /* Lighter hover color */
+    color: #272a27; 
+}
+
+.footer-login {
+    font-weight: 600; 
+    /* Use a contrasting Red/Orange for the Login link (standard practice for actions) */
+    color: #0a6232; 
+}
+
+.footer-login:hover {
+    color: #ffcc66; 
+}
+
+.contact-detail {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Bottom Bar (Copyright and Meta Data) */
+.footer-bottom-bar {
+    max-width: 1280px;
+    margin-left: 3px;
+    margin-right: 3px;
+    padding-top: 1 rem; 
+    text-align: center;
+    color: #153f15; /* Muted green/gray for technical text */
+    font-size: 0.8rem; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-meta {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 1rem; 
+}
+
+.meta-separator {
+    border-left: 1px solid #3c6e4e; /* Darker green separator */
+    padding-left: 1rem; 
+}
+
+/* Responsive adjustments (Keep these for responsiveness) */
+@media (min-width: 768px) {
+    .footer-content-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
+    }
+
+    .footer-contact-col {
+        grid-column: span 1 / span 1; 
+    }
+
+    .footer-bottom-bar {
+        flex-direction: row; 
+        justify-content: space-between;
+    }
+    
+    .footer-copyright {
+        margin-bottom: 0; 
+    }
 }
