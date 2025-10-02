@@ -40,7 +40,7 @@ const Sidebar = ({ searchInputRef, data }) => {
           <>
             <div className="info-content full-data">
                 {/* Display Village Name (Can be placed here if needed, or assumed from context) */}
-                <h4 style={{margin: '0 15px 15px', fontSize: '18px', fontWeight: '600'}}><u>Kanhargaon Village</u></h4>
+                <h4 style={{margin: '0 15px 15px', fontSize: '18px', fontWeight: '600'}}><u>Samnapur Village</u></h4>
                 
                 {/* Stats Area */}
                 <div className="stats-area">
