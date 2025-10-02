@@ -74,7 +74,7 @@
 .geosearch-sidebar-container form button.reset {
   position: absolute;
   right: 10px;
-  top: 50%;
+  top: 15px;
   transform: translateY(-50%);
   background: transparent;
   border: none;
