@@ -1,12 +1,22 @@
-import React, { useState, useEffect } from 'react';
+// UploadModal.js
+
+import React, { useState, useEffect, useRef } from 'react'; // ⭐ useRef imported
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload} from '@fortawesome/free-solid-svg-icons';
+import MapModal from './MapModal'; 
 import './UploadModal.css';
 
 const UploadModal = ({ isOpen, onClose }) => {
     // Stage: 'initial', 'uploading', 'processing', 'complete'
     const [stage, setStage] = useState('initial'); 
     const [progress, setProgress] = useState(0);
+    const [isMapModalOpen, setIsMapModalOpen] = useState(false); 
+    
+    // ⭐ NEW STATE: To store the selected file info (name, size, type)
+    const [selectedFile, setSelectedFile] = useState(null); 
+    
+    // ⭐ NEW REF: To access the hidden file input element
+    const fileInputRef = useRef(null);
 
     // --- Data to display in the final stage (Simulated AI Result) ---
     const extractedData = {
@@ -23,6 +33,7 @@ const UploadModal = ({ isOpen, onClose }) => {
         if (isOpen) {
             setStage('initial');
             setProgress(0);
+            setSelectedFile(null); // ⭐ Reset file selection
         }
     }, [isOpen]);
 
@@ -35,7 +46,7 @@ const UploadModal = ({ isOpen, onClose }) => {
                     const newProgress = prevProgress + 10;
                     if (newProgress >= 100) {
                         clearInterval(timer);
-                        setStage('processing'); // Transition to processing
+                        setStage('processing');
                         return 100;
                     }
                     return newProgress;
@@ -45,32 +56,52 @@ const UploadModal = ({ isOpen, onClose }) => {
         return () => clearInterval(timer);
     }, [stage, progress]);
 
-    // ⭐ 2. NEW EFFECT: Transition from 'processing' to 'complete'
+    // 2. EFFECT: Transition from 'processing' to 'complete'
     useEffect(() => {
         let timer;
         if (stage === 'processing') {
-            // Simulate AI processing time (e.g., 2 seconds)
             timer = setTimeout(() => {
-                setStage('complete'); // Transition to final stage
+                setStage('complete');
             }, 2000); 
         }
-        return () => clearTimeout(timer); // Cleanup timer
+        return () => clearTimeout(timer);
     }, [stage]);
 
+    // ⭐ NEW HANDLER: Triggers the hidden file input click
+    const handleChooseFilesClick = () => {
+        fileInputRef.current.click();
+    };
 
-    const handleChooseFiles = () => {
-        setStage('uploading');
+    // ⭐ NEW HANDLER: Reads the selected file and sets state
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            // Store basic file details
+            setSelectedFile({
+                name: file.name,
+                size: (file.size / (1024 * 1024)).toFixed(2), // Size in MB
+                type: file.type || 'application/octet-stream' // Basic MIME type
+            });
+            // Immediately start the upload stage
+            setStage('uploading');
+        }
     };
 
     const handleCancel = () => {
         setStage('initial');
         setProgress(0);
+        setSelectedFile(null);
         onClose();
     };
 
     const uploadAnother = () =>{
         setStage('initial');
         setProgress(0);
+        setSelectedFile(null);
+    };
+
+    const openMapModal = () => {
+        setIsMapModalOpen(true);
     };
 
     const handleSave = () => {
@@ -82,22 +113,42 @@ const UploadModal = ({ isOpen, onClose }) => {
         return null;
     }
 
+    // --- Utility: Format file type display ---
+    const getFileTypeDisplay = (mimeType) => {
+        if (mimeType.includes('pdf')) return 'PDF Document';
+        if (mimeType.includes('image')) return 'Image File';
+        if (mimeType.includes('word')) return 'Word Document';
+        return 'Document';
+    };
+
+
     // --- Conditional Content Rendering ---
     
     const renderFileSection = () => {
-        const fileName = "FRA_Application_Form.pdf";
-        const fileSize = "2.4 MB · PDF Document";
+        // Use selectedFile data, fallback to placeholder data if necessary for initial render
+        const fileName = selectedFile ? selectedFile.name : "FRA_Application_Form.pdf";
+        const fileSize = selectedFile ? `${selectedFile.size} MB` : "2.4 MB";
+        const fileTypeDisplay = selectedFile ? getFileTypeDisplay(selectedFile.type) : "PDF Document";
+
 
         if (stage === 'initial') {
-            // State: Initial drag and drop view
             return (
                 <div className="drop-area">
-                    {/* ... (Existing drag and drop content) ... */}
+                    {/* ⭐ HIDDEN FILE INPUT */}
+                    <input 
+                        type="file" 
+                        ref={fileInputRef} 
+                        onChange={handleFileChange} 
+                        style={{ display: 'none' }}
+                        accept=".pdf,.jpg,.png,.tiff,.doc,.docx" // Restrict files
+                    />
+                    
                     <div className="upload-icon-box"><span className="upload-icon"><FontAwesomeIcon icon={faUpload} /></span></div>
                     <h3>Drag and Drop Files Here</h3>
                     <p>Or click to browse and select files from your computer</p>
                     <div className="upload-actions">
-                        <button className="btn btn-primary" onClick={handleChooseFiles}>
+                        {/* ⭐ MODIFIED: Button clicks the hidden input */}
+                        <button className="btn btn-primary" onClick={handleChooseFilesClick}>
                             <span className="icon">📄</span> Choose Files
                         </button>
                         <button className="btn btn-secondary"><span className="icon">📸</span> Take Photo</button>
@@ -112,12 +163,15 @@ const UploadModal = ({ isOpen, onClose }) => {
                 <div className="file-info">
                     <span className="file-icon">📄</span>
                     <div className="file-details">
+                        {/* ⭐ DYNAMIC FILE INFO */}
                         <p className="file-name">{fileName}</p>
-                        <p className="file-size">{fileSize}</p>
+                        <p className="file-size">{fileSize} · {fileTypeDisplay}</p>
                     </div>
                 </div>
                 
                 {/* --- UPLOADING STATE --- */}
+                {/* ... (Rest of the rendering logic remains the same, using progress state) ... */}
+
                 {stage === 'uploading' && (
                     <div className="progress-container uploading">
                         <p className="upload-status">Uploading...</p>
@@ -128,7 +182,6 @@ const UploadModal = ({ isOpen, onClose }) => {
                     </div>
                 )}
                 
-                {/* --- AI PROCESSING STATE --- */}
                 {stage === 'processing' && (
                     <div className="progress-container processing">
                         <div className="ai-status-bar">
@@ -144,10 +197,8 @@ const UploadModal = ({ isOpen, onClose }) => {
                     </div>
                 )}
 
-                {/* --- ⭐ FINAL COMPLETE STATE --- */}
                 {stage === 'complete' && (
                     <div className="complete-results">
-                        {/* Success Message */}
                         <div className="success-message">
                             <span className="success-icon">✓</span>
                             <div className="msg">
@@ -156,26 +207,12 @@ const UploadModal = ({ isOpen, onClose }) => {
                             </div>
                         </div>
                             
-
-                        {/* Extracted Data Fields */}
                         <h4 className="extracted-heading">Extracted Information</h4>
                         <div className="extracted-fields-grid">
-                            <div className="field-item">
-                                <span className="field-label">Claimant Name:</span>
-                                <span className="field-value">{extractedData.claimant}</span>
-                            </div>
-                            <div className="field-item">
-                                <span className="field-label">Village:</span>
-                                <span className="field-value">{extractedData.village}</span>
-                            </div>
-                            <div className="field-item">
-                                <span className="field-label">Area:</span>
-                                <span className="field-value">{extractedData.area}</span>
-                            </div>
-                            <div className="field-item">
-                                <span className="field-label">Claim Type:</span>
-                                <span className="field-value">{extractedData.claimType}</span>
-                            </div>
+                            <div className="field-item"><span className="field-label">Claimant Name:</span><span className="field-value">{extractedData.claimant}</span></div>
+                            <div className="field-item"><span className="field-label">Village:</span><span className="field-value">{extractedData.village}</span></div>
+                            <div className="field-item"><span className="field-label">Area:</span><span className="field-value">{extractedData.area}</span></div>
+                            <div className="field-item"><span className="field-label">Claim Type:</span><span className="field-value">{extractedData.claimType}</span></div>
                         </div>
                     </div>
                 )}
@@ -204,6 +241,7 @@ const UploadModal = ({ isOpen, onClose }) => {
                         <div>PDF</div>
                         <div>JPG</div>
                         <div>PNG</div>
+                        <div>TIF</div>
                         <div>DOC</div>
                         <div>DOCX</div>
                     </div>
@@ -219,7 +257,7 @@ const UploadModal = ({ isOpen, onClose }) => {
                     {stage === 'complete' && (
                         <>
                             <button className="btn btn-cancel" onClick={uploadAnother}>Upload Another</button>
-                            <button className='btn btn-cancel'>Draw Boundaries</button>
+                            <button className='btn btn-cancel' onClick={openMapModal}>Draw Boundaries</button>
                             <button className="btn btn-save" onClick={handleSave}>
                                 Save to Records
                             </button>
@@ -227,6 +265,11 @@ const UploadModal = ({ isOpen, onClose }) => {
                     )}
                 </div>
             </div>
+
+            <MapModal 
+                isOpen={isMapModalOpen} 
+                onClose={() => setIsMapModalOpen(false)} 
+            />
         </div>
     );
 };
