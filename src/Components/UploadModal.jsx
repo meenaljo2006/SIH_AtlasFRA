@@ -26,7 +26,9 @@ const UploadModal = ({ isOpen, onClose }) => {
         claimType: "Community Forest Resource",
         confidence: "98%"
     };
-    // ------------------------------------------------------------------
+    
+    // ⭐ NEW STATE: To manage the editable extracted data
+    const [editableData, setEditableData] = useState(extractedData);
 
     // Reset state when the modal is opened
     useEffect(() => {
@@ -34,8 +36,17 @@ const UploadModal = ({ isOpen, onClose }) => {
             setStage('initial');
             setProgress(0);
             setSelectedFile(null); // ⭐ Reset file selection
+            setEditableData(extractedData); // ⭐ Reset editable data here
         }
     }, [isOpen]);
+
+    // ⭐ NEW HANDLER: To update data when user types
+    const handleDataChange = (field, value) => {
+        setEditableData(prevData => ({
+            ...prevData,
+            [field]: value, // Update the specific field
+        }));
+    };
 
     // 1. EFFECT: Simulate progress and transition to 'processing'
     useEffect(() => {
@@ -208,11 +219,50 @@ const UploadModal = ({ isOpen, onClose }) => {
                         </div>
                             
                         <h4 className="extracted-heading">Extracted Information</h4>
-                        <div className="extracted-fields-grid">
-                            <div className="field-item"><span className="field-label">Claimant Name:</span><span className="field-value">{extractedData.claimant}</span></div>
-                            <div className="field-item"><span className="field-label">Village:</span><span className="field-value">{extractedData.village}</span></div>
-                            <div className="field-item"><span className="field-label">Area:</span><span className="field-value">{extractedData.area}</span></div>
-                            <div className="field-item"><span className="field-label">Claim Type:</span><span className="field-value">{extractedData.claimType}</span></div>
+                        <div className="extracted-fields-grid editable-grid">
+                            {/* Claimant Name Field */}
+                            <div className="field-item editable">
+                                <span className="field-label">Claimant Name:</span>
+                                <input 
+                                    type="text"
+                                    value={editableData.claimant}
+                                    onChange={(e) => handleDataChange('claimant', e.target.value)}
+                                    className="field-input"
+                                />
+                            </div>
+
+                            {/* Village Field */}
+                            <div className="field-item editable">
+                                <span className="field-label">Village:</span>
+                                <input 
+                                    type="text"
+                                    value={editableData.village}
+                                    onChange={(e) => handleDataChange('village', e.target.value)}
+                                    className="field-input"
+                                />
+                            </div>
+                            
+                            {/* Area Field */}
+                            <div className="field-item editable">
+                                <span className="field-label">Area:</span>
+                                <input 
+                                    type="text"
+                                    value={editableData.area}
+                                    onChange={(e) => handleDataChange('area', e.target.value)}
+                                    className="field-input"
+                                />
+                            </div>
+                            
+                            {/* Claim Type Field */}
+                            <div className="field-item editable">
+                                <span className="field-label">Claim Type:</span>
+                                <input 
+                                    type="text"
+                                    value={editableData.claimType}
+                                    onChange={(e) => handleDataChange('claimType', e.target.value)}
+                                    className="field-input"
+                                />
+                            </div>
                         </div>
                     </div>
                 )}

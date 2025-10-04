@@ -19,10 +19,12 @@
     background-color: white;
     border-radius: 10px;
     width: 90%;
+    max-height: 90vh;
     max-width: 550px; /* As per the image size */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     padding: 20px 0; /* Vertical padding, horizontal padding done by inner elements */
     font-family: Arial, sans-serif;
+    overflow-y: auto;
 }
 
 /* Header */
@@ -409,30 +411,42 @@
     margin: 0 0 15px 0;
 }
 
-.extracted-fields-grid {
+/* Styling for the editable grid layout */
+.extracted-fields-grid.editable-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns */
-    gap: 15px 25px; /* Vertical and horizontal gap */
-    margin-bottom: -10px;
+    grid-template-columns: 0.6fr 1fr; /* Two columns for label and input */
+    gap: 10px 20px;
+    padding: 15px;
+    border: 1px solid #eee;
+    background-color: #f9f9f9;
+    border-radius: 4px;
 }
 
-.field-item {
-    display: flex;
-    flex-direction: column;
+.field-item.editable {
+    display: contents; /* Allows children to participate directly in the grid */
+    font-size: 14px;
 }
 
 .field-label {
-    font-size: 0.8rem;
-    color: #666;
-    margin-bottom: 3px;
+    font-weight: 600;
+    color: #555;
+    text-align: left; /* Align label to the right side of the first column */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-right: 10px;
+    line-height: 30px; /* Match input height */
 }
 
-.field-value {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #333;
-    padding-bottom: 8px;
-    /* border-bottom: 1px dashed #eee; Dashed line separator */
+.field-input {
+    width: 90%;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    transition: border-color 0.2s;
+}
+
+.field-input:focus {
+    border-color: #007bff; /* Highlight on focus */
+    outline: none;
 }
 
 /* Footer Buttons (Save button) */
