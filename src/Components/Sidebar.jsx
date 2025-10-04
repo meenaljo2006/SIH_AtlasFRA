@@ -2,12 +2,23 @@
 
 import './Sidebar.css';
 import React, { useState } from 'react'; 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons';
 
 // ⭐ MODIFICATION: Component now accepts a 'data' prop (must be passed from AtlasView.js)
-const Sidebar = ({ searchInputRef, data }) => { 
+const Sidebar = ({ onSearchSubmit }) => { 
   
   // Create state for Asset Layers visibility
   const [isAssetLayerOpen, setIsAssetLayerOpen] = useState(true);
+  const [input, setInput] = useState('');
+
+  const handleSubmit = (e) => {
+        e.preventDefault();
+        if (input.trim()) {
+            // Search term ko AtlasView ko wapas bhej dein
+            onSearchSubmit(input.trim()); 
+        }
+    };
 
   // Function to toggle the asset layer section
   const toggleAssetLayer = () => {
@@ -78,9 +89,18 @@ const Sidebar = ({ searchInputRef, data }) => {
         {/* Search Section */}
         <div className="sidebar-section search-section">
           <h3>Search Villages or Claims</h3>
-          <div ref={searchInputRef} className="geosearch-sidebar-container">
-            {/* GeoSearch input will be moved here by MapSearchHandler */}
-          </div>
+          <form onSubmit={handleSubmit} className="custom-search-form">
+                    <input
+                        type="text"
+                        placeholder="Search village/claim..."
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        className="glass"
+                    />
+                    <button type="submit" className="search-button">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </button>
+                </form>
         </div>
         
         {/* --- Map Layers Section --- */}

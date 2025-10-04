@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import Sidebar from '../Components/Sidebar';
+import MapSearch from '../Components/MapSearch'; // ⭐ New Import
 import MapSearchHandler from '../Components/MapSearchHandler';
 import UploadModal from '../Components/UploadModal'; 
 import './AtlasView.css';
@@ -17,12 +18,17 @@ const pinIcon = new L.Icon({
 });
 
 const AtlasView = () => {
-    const searchInputRef = useRef(null);
+    const mapRef = useRef(null);
+    const [searchQuery, setSearchQuery] = useState('');
     const [isModalOpen, setIsModalOpen] = useState(false); 
     const [geoJsonData, setGeoJsonData] = useState(null); 
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
+
+    const handleSearch = (term) => {
+        setSearchQuery(term);
+    };
 
     useEffect(() => {
         setGeoJsonData(toFeatureCollection(mockData.shapes)); 
@@ -75,9 +81,10 @@ const AtlasView = () => {
 
     return (
         <div className="atlas-container">
-            <Sidebar searchInputRef={searchInputRef} />
+            <Sidebar onSearchSubmit={handleSearch} />
             <div className="map-area">
                 <MapContainer 
+                    ref={mapRef}
                     center={[20.5937, 78.9629]} 
                     zoom={5} 
                     scrollWheelZoom 
@@ -127,7 +134,7 @@ const AtlasView = () => {
                         />
                      )}
 
-                    <MapSearchHandler mapRef={searchInputRef} />
+                    <MapSearch searchTerm={searchQuery} />
                 </MapContainer>
             </div>
             

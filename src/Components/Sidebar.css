@@ -40,90 +40,45 @@
 }
 
 
-/* Hide the extra search icon container */
-
-/* Force the container to take full sidebar width */
-.geosearch-sidebar-container {
-  width: 100% !important;
-  display: block;
-  position: relative;
+/* 1. Container for the Search Bar */
+.custom-search-form {
+    display: flex; /* Aligns the input and button/icon horizontally */
+    margin: 10px 7px 7px 7px;
+    border: 1px solid #ccc; /* Light border around the whole unit */
+    border-radius: 4px;
+    overflow: hidden; /* Ensures contents stay within the border radius */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Make the inner geosearch div stretch */
-.geosearch-sidebar-container .leaflet-control-geosearch.leaflet-geosearch-bar {
-  width: 100% !important;
-  display: block;
-}
-
-/* Ensure form takes all available space */
-.geosearch-sidebar-container form {
-  width: 100% !important;
-  position: relative; /* needed for reset button */
-  display: block;
-}
-
-/* Input full width */
-.geosearch-sidebar-container form input.glass {
-  width: 100% !important;
-  box-sizing: border-box;
-  padding: 8px 35px 8px 12px; /* space for the × button */
-  font-size: 14px;
-}
-
-/* Reset button inside input neatly */
-.geosearch-sidebar-container form button.reset {
-  position: absolute;
-  right: 10px;
-  top: 15px;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Force container to take full sidebar width */
-.geosearch-sidebar-container,
-.geosearch-sidebar-container .leaflet-control-geosearch.leaflet-geosearch-bar {
-  width: 100% !important;
-  max-width: none !important; /* override Leaflet’s fixed limit */
-  display: block !important;
-}
-
-.geosearch-sidebar-container .geosearch.leaflet-bar {
-    display: none !important;
-}
-
-
-/* hello */
-/* Sidebar.css - New & Updated Styles */
-
-
-
-/* GeoSearch Overrides (Re-checked for consistency) */
-/* The input field in the image is simple and rounded */
-.geosearch-sidebar-container .leaflet-control-geosearch-form input {
-    /* ... ensure your width is 100% and height is fixed ... */
-    border: 1px solid #ccc; /* Add border directly to input if GeoSearch allows */
-    border-radius: 6px;
-    padding: 10px 15px; /* Comfortable padding */
-    height: auto; /* Let padding define height */
+/* 2. The Text Input Field */
+.custom-search-form input.glass {
+    flex-grow: 1; /* Makes the input take up most of the space */
+    padding: 8px 10px;
+    border: none; /* Remove default input border */
     font-size: 14px;
-    line-height: 1.2;
-}
-/* If the above doesn't work, ensure you target the wrapper: */
-.geosearch-sidebar-container .leaflet-control-geosearch-form {
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    height: 40px; /* Adjust height */
-    width: 100%;
-}
-.geosearch-sidebar-container .leaflet-control-geosearch-form input {
-    border: none; /* Remove border from input if wrapper has it */
-    padding: 10px 15px; 
+    outline: none; /* Remove focus outline */
+    background-color: #f7f7f7; /* Light background for the input area */
 }
 
+.custom-search-form input.glass::placeholder {
+    color: #999;
+}
 
+/* 3. The Search Button */
+.custom-search-form .search-button {
+    /* Basic button styling */
+    padding: 8px 12px;
+    border: none;
+    background-color: #d4dbd4; /* A distinct green color */
+    color: black;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s; 
+}
+
+.custom-search-form .search-button:hover {
+    background-color: #2a742e9a; /* Slightly darker green on hover */
+}
 /* --- Layer Items & Toggles --- */
 
 .layer-item {
@@ -351,79 +306,4 @@ input:checked + .slider:before {
 
 .report-button:hover {
     background-color: #1c8f3f; /* Darker green on hover */
-}
-
-
-
-/* ------------------------------ */
-/* Sidebar Section with GeoSearch */
-/* ------------------------------ */
-
-.sidebar-section {
-    margin-bottom: 15px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #23232228; /* Light gray separator */
-    display: flex;
-    flex-direction: column; /* stack children vertically */
-}
-
-/* Section heading */
-.sidebar-section h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 15px;
-    margin-top: 2px;
-}
-
-/* GeoSearch container */
-.sidebar-section .geosearch-sidebar-container {
-    position: relative !important; /* stay inside sidebar */
-    width: 100% !important;       /* full width of sidebar */
-    display: block !important;
-    margin: 0;
-}
-
-/* Leaflet GeoSearch wrapper override */
-.sidebar-section .geosearch-sidebar-container .leaflet-control {
-    position: static !important;   /* override absolute positioning */
-    width: 100% !important;        /* stretch to container */
-    max-width: none !important;
-    display: block !important;
-}
-
-/* Leaflet form inside GeoSearch */
-.sidebar-section .geosearch-sidebar-container form {
-    width: 100% !important;
-    position: relative; /* for reset button inside */
-    display: block;
-    margin: 0;
-}
-
-/* Input field */
-.sidebar-section .geosearch-sidebar-container form input.glass,
-.sidebar-section .geosearch-sidebar-container .leaflet-control-geosearch-form input {
-    width: 100% !important;
-    box-sizing: border-box;
-    padding: 10px 35px 10px 12px; /* space for × button */
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-}
-
-/* Reset button inside input */
-.sidebar-section .geosearch-sidebar-container form button.reset {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Optional spacing below GeoSearch */
-.sidebar-section .geosearch-sidebar-container {
-    margin-bottom: 10px;
 }
