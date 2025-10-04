@@ -1,5 +1,5 @@
 import Footer from "../Components/Footer";
-import './recordsView.css';
+import './RecordsView.css';
 const RecordsView = () => {
     return(
         <>
