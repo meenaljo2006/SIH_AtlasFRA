@@ -70,7 +70,8 @@ useEffect(() => {
 
   setTimeout(() => {
     // ✅ Move search bar to the correct sidebar container
-    const sidebarTarget = document.querySelector('.sidebar-section.search-section');
+    const sidebarTarget = document.querySelector('.geosearch-sidebar-container');
+
     const searchEl = document.querySelector('.leaflet-control-geosearch');
 
     if (sidebarTarget && searchEl && !sidebarTarget.contains(searchEl)) {
