@@ -20,10 +20,10 @@ const UploadModal = ({ isOpen, onClose }) => {
 
     // --- Data to display in the final stage (Simulated AI Result) ---
     const extractedData = {
-        claimant: "Ramesh Kumar Singh",
-        village: "Samnapur",
-        area: "2.5 Acres",
-        claimType: "Individual Forest Rights",
+        claimant: "Munna Gond",
+        village: "Nellore (Adilabad District)",
+        area: "12.15 Hectares",
+        claimType: "Community Forest Resource",
         confidence: "98%"
     };
     // ------------------------------------------------------------------

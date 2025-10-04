@@ -16,8 +16,16 @@ const LoginPage = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Logging in with:', { username, password });
-    navigate('/atlasView'); 
+    // console.log('Logging in with:', { username, password });
+    // navigate('/atlasView'); 
+    
+    if (username === "demoUser" && password === "demo") {
+      console.log("Login successful!");
+      navigate("/atlasView");
+    } else {
+      alert("Invalid credentials!");
+    }
+
   };
 
   return (

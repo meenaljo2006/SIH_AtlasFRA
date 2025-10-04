@@ -40,14 +40,15 @@ const Sidebar = ({ searchInputRef, data }) => {
           <>
             <div className="info-content full-data">
                 {/* Display Village Name (Can be placed here if needed, or assumed from context) */}
-                <h4 style={{margin: '0 15px 15px', fontSize: '18px', fontWeight: '600'}}><u>Samnapur Village</u></h4>
+                <h4 style={{margin: '0 15px 15px', fontSize: '18px', fontWeight: '600'}}><u>Nellore Village</u></h4>
                 
                 {/* Stats Area */}
                 <div className="stats-area">
                     {/* Data should be provided as numbers, we use .toLocaleString() for commas */}
-                    <p>Total Claims: <span className="stat-value">23</span></p>
-                    <p>Approved: <span className="stat-value approved">18</span></p>
-                    <p>Pending: <span className="stat-value pending">5</span></p>
+                    <p>Claim ID: <span className="stat-value">FRA-Telangana-0009</span></p>
+                    <p>Claimant Name: <span className="stat-value">Munna Gond</span></p>
+                    <p>Claim Status: <span className="stat-value approved">Approved</span></p>
+                    <p>Area: <span className="stat-value pending">12.15 hectares</span></p>
                 </div>
                 
                 {/* Button Area */}

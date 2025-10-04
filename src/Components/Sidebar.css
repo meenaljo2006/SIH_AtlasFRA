@@ -189,8 +189,8 @@
 .help-button {
     width: 100%;
     background-color: #fff;
-    color: #007bff;
-    border: 1px solid #007bff;
+    color: #13421d;
+    border: 1px solid #13421d;
     border-radius: 6px;
     padding: 10px 0;
     font-size: 15px;
@@ -316,14 +316,14 @@ input:checked + .slider:before {
     font-weight: 500;
 }
 .stats-area .stat-value {
-    font-weight: 700;
+    font-weight: 500;
     color: #1f3e6c; /* Darker color for values */
 }
 .stats-area .approved {
-    color: #28a745; /* Green */
+    color: #1f3e6c; /* Green */
 }
 .stats-area .pending {
-    color: #ffc107; /* Yellow/Orange */
+    color: #1f3e6c; /* Yellow/Orange */
 }
 
 /* Separator Line */

@@ -4,7 +4,6 @@ import LandingNavbar from '../Components/LandingNavbar';
 import StyledSeperator from '../Components/StyledSeperator';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faCircleInfo, faGears, faIdBadge} from '@fortawesome/free-solid-svg-icons';
-import Roadmap from '../Components/Roadmap';
 import Footer from "../Components/Footer";
 import footerImage from "../assets/footer.jpg";
 import roadmap from "../assets/Secure Access.png";

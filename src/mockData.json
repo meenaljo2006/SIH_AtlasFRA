@@ -1,11 +1,17 @@
 {
   "shapes": [
     {
-      "village":"Samnapur",
-      "district":"Dindori",
-      "state":"Madhya Pradesh",
+      "village": "Samnapur",
+      "district": "Dindori",
+      "state": "Madhya Pradesh",
       "claimant": "Ramesh kumar Singh",
-      "claimType":"Individual Forests Right",
+      "fatherSpouseName": "Shiv Kumar Singh",
+      "claimId": "FRA-MP-0001",
+      "tribeCommunity": "Gond",
+      "gramPanchayat": "Samnapur GP",
+      "claimStatus": "Pending",
+      "SubmissionDate": "2025-07-13",
+      "claimType": "Individual Forests Right",
       "type": "Polygon",
       "coordinates": [
           [81.170515668044,22.73655823671163],
@@ -27,11 +33,17 @@
       ]
     },
     {
-      "village":"Karanjiya",
-      "district":"Dindori",
-      "state":"Madhya Pradesh",
+      "village": "Karanjiya",
+      "district": "Dindori",
+      "state": "Madhya Pradesh",
       "claimant": "Gopal Dutt Mishra",
-      "claimType":"Individual Forests Right",
+      "fatherSpouseName": "Ramesh Mishra",
+      "claimId": "FRA-MP-0002",
+      "tribeCommunity": "Baiga",
+      "gramPanchayat": "Karanjiya GP",
+      "claimStatus": "Pending",
+      "SubmissionDate": "2025-07-13",
+      "claimType": "Individual Forests Right",
       "type": "Polygon",
       "coordinates": [
             [81.60975878786536,22.747845365875193],
@@ -74,6 +86,12 @@
       "district": "Dhalai",
       "state": "Tripura",
       "claimant": "Tribal Council Claim",
+      "fatherSpouseName": "Ram Charan",
+      "claimId": "FRA-TRI-0003",
+      "tribeCommunity": "Tripuri",
+      "gramPanchayat": "Salema GP",
+      "claimStatus": "Pending",
+      "SubmissionDate": "2025-07-13",
       "claimType": "Community Forest Right",
       "type": "Polygon",
       "coordinates": [
@@ -156,6 +174,12 @@
       "district": "Dhalai",
       "state": "Tripura",
       "claimant": "Gond Gram Sabha",
+      "fatherSpouseName": "Laxman Gond",
+      "claimId": "FRA-TRI-0004",
+      "tribeCommunity": "Gond",
+      "gramPanchayat": "Auliraipara GP",
+      "claimStatus": "Approved",
+      "SubmissionDate": "2025-07-13",
       "claimType": "Community Forest Right",
       "type": "Polygon",
       "coordinates": [
@@ -202,6 +226,54 @@
             [
               91.93479467947685,
               23.82287180586441
+            ]
+      ]
+    },
+    {
+      "village": "Nellore",
+      "district": "Adilabad",
+      "state": "Telangana",
+      "claimant": "Munna Gond",
+      "fatherSpouseName":"Gopal Behera",
+      "claimId":"FRA-Telangana-0009",
+      "tribeCommunity":"Gond",
+      "gramPanchayat":"Nellore GP",
+      "claimStatus":"Approved",
+      "SubmissionDate":"2025-07-13",
+      "claimType": "Community Forest Resource",
+      "type": "Polygon",
+      "coordinates": [
+            [
+              78.57043213232333,
+              19.689625339900886
+            ],
+            [
+              78.57028180094119,
+              19.678018496376694
+            ],
+            [
+              78.57231127461398,
+              19.67830160012791
+            ],
+            [
+              78.58012850654302,
+              19.677452287373526
+            ],
+            [
+              78.58418745388866,
+              19.677593839811934
+            ],
+            [
+              78.58561560203077,
+              19.68431743656828
+            ],
+            [
+              78.58569076772079,
+              19.686086757226832
+            ],
+            [
+              78.57043213232333,
+              19.689625339900886
             ]
       ]
     }
