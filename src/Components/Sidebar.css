@@ -352,3 +352,78 @@ input:checked + .slider:before {
 .report-button:hover {
     background-color: #1c8f3f; /* Darker green on hover */
 }
+
+
+
+/* ------------------------------ */
+/* Sidebar Section with GeoSearch */
+/* ------------------------------ */
+
+.sidebar-section {
+    margin-bottom: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #23232228; /* Light gray separator */
+    display: flex;
+    flex-direction: column; /* stack children vertically */
+}
+
+/* Section heading */
+.sidebar-section h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    margin-top: 2px;
+}
+
+/* GeoSearch container */
+.sidebar-section .geosearch-sidebar-container {
+    position: relative !important; /* stay inside sidebar */
+    width: 100% !important;       /* full width of sidebar */
+    display: block !important;
+    margin: 0;
+}
+
+/* Leaflet GeoSearch wrapper override */
+.sidebar-section .geosearch-sidebar-container .leaflet-control {
+    position: static !important;   /* override absolute positioning */
+    width: 100% !important;        /* stretch to container */
+    max-width: none !important;
+    display: block !important;
+}
+
+/* Leaflet form inside GeoSearch */
+.sidebar-section .geosearch-sidebar-container form {
+    width: 100% !important;
+    position: relative; /* for reset button inside */
+    display: block;
+    margin: 0;
+}
+
+/* Input field */
+.sidebar-section .geosearch-sidebar-container form input.glass,
+.sidebar-section .geosearch-sidebar-container .leaflet-control-geosearch-form input {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 10px 35px 10px 12px; /* space for × button */
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Reset button inside input */
+.sidebar-section .geosearch-sidebar-container form button.reset {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Optional spacing below GeoSearch */
+.sidebar-section .geosearch-sidebar-container {
+    margin-bottom: 10px;
+}
