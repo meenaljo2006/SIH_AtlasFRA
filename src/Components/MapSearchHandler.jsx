@@ -32,7 +32,7 @@ const MapSearchHandler = ({ mapRef }) => {
           mapRef.current.appendChild(inputEl);
         }
       }
-    }, 100); // slight delay ensures the element exists
+    }, 50); // slight delay ensures the element exists
 
     return () => {
       map.removeControl(searchControl);
